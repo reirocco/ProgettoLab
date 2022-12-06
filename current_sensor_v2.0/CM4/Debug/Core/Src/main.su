@@ -1,5 +1,5 @@
-../Core/Inc/currentsensorfcn.h:29:5:calibration	72	static
-../Core/Inc/currentsensorfcn.h:59:8:getFilteredValue	64	static
+../Core/Inc/currentsensorfcn.h:60:5:calibration	72	static
+../Core/Inc/currentsensorfcn.h:87:8:getFilteredValue	64	static
 ../Core/Src/main.c:98:5:main	24	static
 ../Core/Src/main.c:166:13:MX_ADC1_Init	48	static
 ../Core/Src/main.c:234:6:MX_ETH_Init	8	static

@@ -149,8 +149,8 @@ int main(void)
   while (1)
   {
 	  value = getFilteredValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-	  printf("%f\r\n",value);
-	  HAL_Delay(10);
+	  //printf("%f\n",value);
+	  HAL_Delay(15);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

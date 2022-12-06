@@ -1,0 +1,21 @@
+!SESSION 2022-12-06 19:19:28.687 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\Rocco\STM32CubeIDE\workspace_1.10.1\ProgettoLab
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-12-06 19:19:36.643
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-12-06 19:19:36.748
+!MESSAGE Log4j initialized with config file C:\Users\Rocco\STM32CubeIDE\workspace_1.10.1\ProgettoLab\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-12-06 19:19:40.177
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-12-06 19:20:24.291
+!MESSAGE Indexed 'current_sensor_v2.0_CM4' (30 sources, 98 headers) in 9,57 sec: 11.677 declarations; 100.831 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0018%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-12-06 19:20:28.017
+!MESSAGE Indexed 'current_sensor_v2.0_CM7' (29 sources, 93 headers) in 3,69 sec: 9.558 declarations; 68.240 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0,0026%)

@@ -61,8 +61,8 @@ all: main-build
 main-build: current_sensor_v2.0_CM4.elf secondary-outputs
 
 # Tool invocations
-current_sensor_v2.0_CM4.elf current_sensor_v2.0_CM4.map: $(OBJS) $(USER_OBJS) /home/rocco/STM32CubeIDE/workspace_1.10.1/current_sensor_v2.0/CM4/STM32H745ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "current_sensor_v2.0_CM4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/rocco/STM32CubeIDE/workspace_1.10.1/current_sensor_v2.0/CM4/STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="current_sensor_v2.0_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+current_sensor_v2.0_CM4.elf current_sensor_v2.0_CM4.map: $(OBJS) $(USER_OBJS) C:\Users\Rocco\STM32CubeIDE\workspace_1.10.1\ProgettoLab\current_sensor_v2.0\CM4\STM32H745ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "current_sensor_v2.0_CM4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Rocco\STM32CubeIDE\workspace_1.10.1\ProgettoLab\current_sensor_v2.0\CM4\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="current_sensor_v2.0_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

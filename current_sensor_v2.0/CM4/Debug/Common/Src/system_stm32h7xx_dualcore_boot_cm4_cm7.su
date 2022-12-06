@@ -1,2 +1,2 @@
-/home/rocco/STM32CubeIDE/workspace_1.10.1/current_sensor_v2.0/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c:177:6:SystemInit	4	static
-/home/rocco/STM32CubeIDE/workspace_1.10.1/current_sensor_v2.0/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c:323:6:SystemCoreClockUpdate	48	static
+C:/Users/Rocco/STM32CubeIDE/workspace_1.10.1/ProgettoLab/current_sensor_v2.0/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c:177:6:SystemInit	4	static
+C:/Users/Rocco/STM32CubeIDE/workspace_1.10.1/ProgettoLab/current_sensor_v2.0/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c:323:6:SystemCoreClockUpdate	48	static
