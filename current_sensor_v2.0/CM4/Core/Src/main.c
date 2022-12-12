@@ -135,22 +135,23 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-
   HAL_Delay(2000);
-  printf("Start calibration...\r\n");
+  //printf("Start calibration...\r\n");
   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-  printf("Real VREF --> %f\r\n", realVRef);
-  printf("Calibrated.\r\n");
+  printf("OK\n");
+  //printf("Real VREF --> %f\r\n", realVRef);
+  //printf("Calibrated.\r\n");
   double value;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  //HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  //TIM1->CCR1 = 999;
   while (1)
   {
-	  value = getFilteredValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-	  //printf("%f\n",value);
-	  HAL_Delay(15);
+	  value = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+	  //HAL_Delay(15);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

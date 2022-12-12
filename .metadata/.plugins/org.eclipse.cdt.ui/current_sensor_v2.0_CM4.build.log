@@ -1,110 +1,129 @@
-21:11:53 **** Incremental Build of configuration Debug for project current_sensor_v2.0_CM4 ****
+17:12:17 **** Incremental Build of configuration Debug for project current_sensor_v2.0_CM4 ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:37:2: warning: "/*" within comment [-Wcomment]
-   37 |  /* loop for at least 5 seconds and average the values to calculate the offset
-      |   
 ../Core/Inc/currentsensorfcn.h: In function 'calibration':
-../Core/Inc/currentsensorfcn.h:62:29: warning: initialization of 'void (*)(int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   62 |  void (*adcStartFcn)(int) = adcStartAddr;
+../Core/Inc/currentsensorfcn.h:39:29: warning: initialization of 'void (*)(int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   39 |  void (*adcStartFcn)(int) = adcStartAddr;
       |                             ^~~~~~~~~~~~
-../Core/Inc/currentsensorfcn.h:64:59: warning: initialization of 'HAL_StatusTypeDef (*)(int,  int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   64 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
+../Core/Inc/currentsensorfcn.h:41:59: warning: initialization of 'HAL_StatusTypeDef (*)(int,  int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   41 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
       |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Inc/currentsensorfcn.h:66:36: warning: initialization of 'uint32_t (*)(int)' {aka 'long unsigned int (*)(int)'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   66 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
+../Core/Inc/currentsensorfcn.h:43:36: warning: initialization of 'uint32_t (*)(int)' {aka 'long unsigned int (*)(int)'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   43 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
       |                                    ^~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:53:9: warning: unused variable 'rilevazione' [-Wunused-variable]
+   53 |  double rilevazione;
+      |         ^~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:43:13: warning: unused variable 'adcGetValueFcn' [-Wunused-variable]
+   43 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:41:22: warning: unused variable 'adcPollForConversionFcn' [-Wunused-variable]
+   41 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:39:9: warning: unused variable 'adcStartFcn' [-Wunused-variable]
+   39 |  void (*adcStartFcn)(int) = adcStartAddr;
+      |         ^~~~~~~~~~~
 ../Core/Inc/currentsensorfcn.h: In function 'getFilteredValue':
-../Core/Inc/currentsensorfcn.h:89:29: warning: initialization of 'void (*)(int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   89 |  void (*adcStartFcn)(int) = adcStartAddr;
+../Core/Inc/currentsensorfcn.h:70:29: warning: initialization of 'void (*)(int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   70 |  void (*adcStartFcn)(int) = adcStartAddr;
       |                             ^~~~~~~~~~~~
-../Core/Inc/currentsensorfcn.h:91:59: warning: initialization of 'HAL_StatusTypeDef (*)(int,  int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   91 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
+../Core/Inc/currentsensorfcn.h:72:59: warning: initialization of 'HAL_StatusTypeDef (*)(int,  int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   72 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
       |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Inc/currentsensorfcn.h:93:36: warning: initialization of 'uint32_t (*)(int)' {aka 'long unsigned int (*)(int)'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   93 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
+../Core/Inc/currentsensorfcn.h:74:36: warning: initialization of 'uint32_t (*)(int)' {aka 'long unsigned int (*)(int)'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   74 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
       |                                    ^~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:79:9: warning: unused variable 'current' [-Wunused-variable]
+   79 |  double current;
+      |         ^~~~~~~
+../Core/Inc/currentsensorfcn.h: In function 'getTorque':
+../Core/Inc/currentsensorfcn.h:24:25: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   24 | #define TORQUECONSTANT 0,1515573181818224 // N/m torque constant --> see https://www.pololu.com/product/4751/specs#note3
+      |                         ^
+../Core/Inc/currentsensorfcn.h:113:10: note: in expansion of macro 'TORQUECONSTANT'
+  113 |  return (TORQUECONSTANT * current);
+      |          ^~~~~~~~~~~~~~
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:141:15: warning: passing argument 1 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
-  141 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+../Core/Src/main.c:140:15: warning: passing argument 1 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
+  140 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
       |               ^~~~~~~~~~~~~
       |               |
       |               HAL_StatusTypeDef (*)(ADC_HandleTypeDef *)
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:60:21: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *)'
-   60 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+../Core/Inc/currentsensorfcn.h:37:21: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *)'
+   37 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
       |                 ~~~~^~~~~~~~~~~~
-../Core/Src/main.c:141:30: warning: passing argument 2 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
-  141 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+../Core/Src/main.c:140:30: warning: passing argument 2 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
+  140 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
       |                              ^~~~~~~~~~~~~~~~~~~~~~~~~
       |                              |
       |                              HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, uint32_t) {aka HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, long unsigned int)}
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:60:39: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, uint32_t)' {aka 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, long unsigned int)'}
-   60 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+../Core/Inc/currentsensorfcn.h:37:39: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, uint32_t)' {aka 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, long unsigned int)'}
+   37 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
       |                                   ~~~~^~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:141:57: warning: passing argument 3 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
-  141 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+../Core/Src/main.c:140:57: warning: passing argument 3 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
+  140 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
       |                                                         ^~~~~~~~~~~~~~~~
       |                                                         |
       |                                                         uint32_t (*)(ADC_HandleTypeDef *) {aka long unsigned int (*)(ADC_HandleTypeDef *)}
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:60:69: note: expected 'int' but argument is of type 'uint32_t (*)(ADC_HandleTypeDef *)' {aka 'long unsigned int (*)(ADC_HandleTypeDef *)'}
-   60 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+../Core/Inc/currentsensorfcn.h:37:69: note: expected 'int' but argument is of type 'uint32_t (*)(ADC_HandleTypeDef *)' {aka 'long unsigned int (*)(ADC_HandleTypeDef *)'}
+   37 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
       |                                                                 ~~~~^~~~~~~~~~~
-../Core/Src/main.c:141:75: warning: passing argument 4 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
-  141 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+../Core/Src/main.c:140:75: warning: passing argument 4 of 'calibration' makes integer from pointer without a cast [-Wint-conversion]
+  140 |   calibration(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
       |                                                                           ^~~~~~
       |                                                                           |
       |                                                                           ADC_HandleTypeDef *
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:60:86: note: expected 'int' but argument is of type 'ADC_HandleTypeDef *'
-   60 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+../Core/Inc/currentsensorfcn.h:37:86: note: expected 'int' but argument is of type 'ADC_HandleTypeDef *'
+   37 | int calibration(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
       |                                                                                  ~~~~^~~~~~~~
-../Core/Src/main.c:151:29: warning: passing argument 1 of 'getFilteredValue' makes integer from pointer without a cast [-Wint-conversion]
-  151 |    value = getFilteredValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-      |                             ^~~~~~~~~~~~~
-      |                             |
-      |                             HAL_StatusTypeDef (*)(ADC_HandleTypeDef *)
+../Core/Src/main.c:153:28: warning: passing argument 1 of 'getCurrentValue' makes integer from pointer without a cast [-Wint-conversion]
+  153 |    value = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+      |                            ^~~~~~~~~~~~~
+      |                            |
+      |                            HAL_StatusTypeDef (*)(ADC_HandleTypeDef *)
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:87:29: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *)'
-   87 | double getFilteredValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
-      |                         ~~~~^~~~~~~~~~~~
-../Core/Src/main.c:151:44: warning: passing argument 2 of 'getFilteredValue' makes integer from pointer without a cast [-Wint-conversion]
-  151 |    value = getFilteredValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-      |                                            ^~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                            |
-      |                                            HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, uint32_t) {aka HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, long unsigned int)}
+../Core/Inc/currentsensorfcn.h:107:28: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *)'
+  107 | double getCurrentValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+      |                        ~~~~^~~~~~~~~~~~
+../Core/Src/main.c:153:43: warning: passing argument 2 of 'getCurrentValue' makes integer from pointer without a cast [-Wint-conversion]
+  153 |    value = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                           |
+      |                                           HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, uint32_t) {aka HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, long unsigned int)}
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:87:47: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, uint32_t)' {aka 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, long unsigned int)'}
-   87 | double getFilteredValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
-      |                                           ~~~~^~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:151:71: warning: passing argument 3 of 'getFilteredValue' makes integer from pointer without a cast [-Wint-conversion]
-  151 |    value = getFilteredValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-      |                                                                       ^~~~~~~~~~~~~~~~
-      |                                                                       |
-      |                                                                       uint32_t (*)(ADC_HandleTypeDef *) {aka long unsigned int (*)(ADC_HandleTypeDef *)}
+../Core/Inc/currentsensorfcn.h:107:46: note: expected 'int' but argument is of type 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, uint32_t)' {aka 'HAL_StatusTypeDef (*)(ADC_HandleTypeDef *, long unsigned int)'}
+  107 | double getCurrentValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+      |                                          ~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:153:70: warning: passing argument 3 of 'getCurrentValue' makes integer from pointer without a cast [-Wint-conversion]
+  153 |    value = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+      |                                                                      ^~~~~~~~~~~~~~~~
+      |                                                                      |
+      |                                                                      uint32_t (*)(ADC_HandleTypeDef *) {aka long unsigned int (*)(ADC_HandleTypeDef *)}
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:87:77: note: expected 'int' but argument is of type 'uint32_t (*)(ADC_HandleTypeDef *)' {aka 'long unsigned int (*)(ADC_HandleTypeDef *)'}
-   87 | double getFilteredValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
-      |                                                                         ~~~~^~~~~~~~~~~
-../Core/Src/main.c:151:89: warning: passing argument 4 of 'getFilteredValue' makes integer from pointer without a cast [-Wint-conversion]
-  151 |    value = getFilteredValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-      |                                                                                         ^~~~~~
-      |                                                                                         |
-      |                                                                                         ADC_HandleTypeDef *
+../Core/Inc/currentsensorfcn.h:107:76: note: expected 'int' but argument is of type 'uint32_t (*)(ADC_HandleTypeDef *)' {aka 'long unsigned int (*)(ADC_HandleTypeDef *)'}
+  107 | double getCurrentValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+      |                                                                        ~~~~^~~~~~~~~~~
+../Core/Src/main.c:153:88: warning: passing argument 4 of 'getCurrentValue' makes integer from pointer without a cast [-Wint-conversion]
+  153 |    value = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+      |                                                                                        ^~~~~~
+      |                                                                                        |
+      |                                                                                        ADC_HandleTypeDef *
 In file included from ../Core/Src/main.c:26:
-../Core/Inc/currentsensorfcn.h:87:94: note: expected 'int' but argument is of type 'ADC_HandleTypeDef *'
-   87 | double getFilteredValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
-      |                                                                                          ~~~~^~~~~~~~
+../Core/Inc/currentsensorfcn.h:107:93: note: expected 'int' but argument is of type 'ADC_HandleTypeDef *'
+  107 | double getCurrentValue(int adcStartAddr, int adcPollForConversionAddr, int adcGetValue, int hadcAddr){
+      |                                                                                         ~~~~^~~~~~~~
 ../Core/Src/main.c:144:10: warning: variable 'value' set but not used [-Wunused-but-set-variable]
   144 |   double value;
       |          ^~~~~
 In file included from ../Core/Src/main.c:26:
 ../Core/Inc/currentsensorfcn.h: In function 'calibration':
-../Core/Inc/currentsensorfcn.h:85:1: warning: control reaches end of non-void function [-Wreturn-type]
-   85 | }
+../Core/Inc/currentsensorfcn.h:66:1: warning: control reaches end of non-void function [-Wreturn-type]
+   66 | }
       | ^
 arm-none-eabi-gcc -o "current_sensor_v2.0_CM4.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Rocco\STM32CubeIDE\workspace_1.10.1\ProgettoLab\current_sensor_v2.0\CM4\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="current_sensor_v2.0_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: current_sensor_v2.0_CM4.elf
@@ -112,11 +131,11 @@ Finished building target: current_sensor_v2.0_CM4.elf
 arm-none-eabi-size   current_sensor_v2.0_CM4.elf 
 arm-none-eabi-objdump -h -S  current_sensor_v2.0_CM4.elf  > "current_sensor_v2.0_CM4.list"
    text	   data	    bss	    dec	    hex	filename
-  54352	    496	   1920	  56768	   ddc0	current_sensor_v2.0_CM4.elf
+  54344	    496	   1920	  56760	   ddb8	current_sensor_v2.0_CM4.elf
 Finished building: default.size.stdout
  
 Finished building: current_sensor_v2.0_CM4.list
  
 
-21:11:59 Build Finished. 0 errors, 17 warnings. (took 5s.494ms)
+17:12:19 Build Finished. 0 errors, 22 warnings. (took 1s.665ms)
 
