@@ -1,0 +1,10 @@
+## How many N-m in 1 kg-cm? The answer is 0.0980665.
+**[Motor Datasheet](https://www.pololu.com/product/4756/specs)**
+
+- stall torque 12V	-->	45 Kg/cm	--> 4,412992500000122  N/m 
+- stall current 12V 	-->	5.5 A
+- stall torque 6V		-->	28 Kg/cm 	--> 2,7458620000000757 N/m 
+- stall current 6V	-->	3.0 A
+
+# torque constant 12 V	--> 0,8023622727272949	N/m 
+# torque constant 6 V	--> 0,9152873333333583	N/m 
