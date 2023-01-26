@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
+  <a href="#"><img src="https://github.com/reirocco/ProgettoLab/blob/main/RESOURCES/logo.png" alt="Markdownify" width="200"></a>
   <br>
   BallBot BB1
   <br>
