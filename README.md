@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="#"><img src="https://github.com/reirocco/ProgettoLab/blob/main/RESOURCES/logo.png" alt="Markdownify" width="200"></a>
+  <a href="#"><img src="https://github.com/reirocco/ProgettoLab/blob/main/RESOURCES/logo.png" alt="Markdownify" width="300"></a>
   <br>
   BallBot BB1
   <br>
