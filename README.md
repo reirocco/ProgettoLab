@@ -8,7 +8,7 @@
 </h1>
 
 <h4 align="center"> Laboratorio di Automazione 2022/23 <a href="https://www.univpm.it/Entra/" target="_blank">@UNIVPM</a>.</h4>
-<h5 align="center"> [Clicca qui](https://www.overleaf.com/read/gyjkqwsypvry) per vedere l'Overleaf del progetto</h5>
+<h5 align="center"> <a href="https://www.overleaf.com/read/gyjkqwsypvry">Clicca qui</a> per vedere l'Overleaf del progetto</h5>
 
 
 <p align="center">
