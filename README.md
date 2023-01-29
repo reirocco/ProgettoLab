@@ -11,7 +11,7 @@
 
 
 <p align="center">
-  <a href="#key-features">Key Features</a> •
+  <a href="#short-description">Short Description</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
@@ -21,25 +21,9 @@
 
 ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
-## Key Features
+## Short Description
 
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, macOS and Linux ready.
+Il BallBot è un robot mobile dinamicamente stabile progettato per bilanciarsi su una singola ruota sferica (ovvero una palla). Attraverso il suo unico punto di contatto con il suolo, un ballbot è omnidirezionale e quindi eccezionalmente agile, manovrabile e organico in movimento rispetto ad altri veicoli terrestri. La sua stabilità dinamica consente una migliore navigabilità in ambienti stretti, affollati e dinamici. Il ballbot funziona secondo lo stesso principio di un pendolo invertito.
 
 ## How To Use
 
