@@ -1,0 +1,6 @@
+../Core/Src/json.c:30:6:json_init	8	static
+../Core/Src/json.c:45:6:extend	8	static
+../Core/Src/json.c:49:6:addElement	24	static
+../Core/Src/json.c:64:7:getJSON	8	static
+../Core/Src/json.c:71:6:json_reset	8	static
+../Core/Src/json.c:76:6:increment_last	16	static

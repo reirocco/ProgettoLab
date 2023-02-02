@@ -96,7 +96,7 @@ void IMU_MPU6050_Read_Acc_Gyro(MPU6050_Data* y){
 	uint8_t Data[12]; //3acc,3vel, 2byte each
 
 	uint16_t counts = Read_FIFO_Count();
-	printf("counts %d\r\n",counts);
+	//printf("counts %d\r\n",counts);
 	int16_t app = 0;
 
 	if(counts>=12){
@@ -105,13 +105,10 @@ void IMU_MPU6050_Read_Acc_Gyro(MPU6050_Data* y){
 		if(ret==HAL_OK){
 			//Store acquisitions in MPU6050_Data
 			app = (int16_t) Data[0] << 8 | (int16_t) Data[1];
-			printf("App Ax: %d, ",app);
 			y->Ax_raw = (app / Acc_LSB_Sensitivity) * g;
 			app = (int16_t) Data[2] << 8 | (int16_t) Data[3];
-			printf("Ay: %d, ",app);
 			y->Ay_raw = (app / Acc_LSB_Sensitivity) * g;
 			app = (int16_t) Data[4] << 8 | (int16_t) Data[5];
-			printf("Az: %d \r\n",app);
 			y->Az_raw = (app / Acc_LSB_Sensitivity) * g;
 
 			app = (int16_t) Data[6] << 8 | (int16_t) Data[7];
@@ -128,11 +125,12 @@ void IMU_MPU6050_Read_Acc_Gyro(MPU6050_Data* y){
 			case HAL_TIMEOUT: printf("HAL_TIMEOUT\r\n");break;
 			}
 		}
+		/*
 		if(counts>12){
 			printf("Delay\r\n");
 			printf("Reset FIFO buffer\r\n");
 			Reset_Reable_FIFO();
-		}
+		}*/
 	}
 }
 

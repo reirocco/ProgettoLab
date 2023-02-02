@@ -18,11 +18,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include <string.h>
 #include "IMU_MPU6050.h"
 
 /* USER CODE END Includes */
@@ -42,7 +42,6 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-void readIMU();
 
 /* USER CODE END PM */
 
@@ -77,14 +76,18 @@ TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart4;
 UART_HandleTypeDef huart3;
+DMA_HandleTypeDef hdma_uart4_tx;
 
 /* USER CODE BEGIN PV */
+typedef unsigned char BYTE;
 uint8_t flag_MPU6050_Data_Ready = 0;
 MPU6050_Data y;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
+static void MX_USART3_UART_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM2_Init(void);
@@ -92,6 +95,9 @@ static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_UART4_Init(void);
 /* USER CODE BEGIN PFP */
+void readIMU();
+int UART_Send(char (*output)[]);
+void string2ByteArray(char* input, BYTE* output);
 
 /* USER CODE END PFP */
 
@@ -140,6 +146,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_USART3_UART_Init();
   MX_TIM1_Init();
   MX_I2C1_Init();
   MX_TIM2_Init();
@@ -150,12 +158,15 @@ int main(void)
 
     // IMU SETTINGS
 	IMU_MPU6050_Init();
-	printf("Start\r\n");
+
+	//json init
+	json_init();
 
 	// TIMERS START
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+
 	/* UART 4 MSG INIT */
 	uint8_t MSG[35] = {'\0'};
 	uint8_t X = 0;
@@ -167,11 +178,32 @@ int main(void)
   while (1)
   {
 	  /*
+	  char output[50];
+	  strcpy(output,"test\r\n");
+	  UART_Send(output);
+	  //readIMU();
+	  HAL_Delay(500);
+	  */
+
+
+	  addElement("rocco", 5);
+	  addElement("test", 5);
+	  addElement("rocco2", 5);
+	  addElement("rocco3", 5);
+
+	  UART_Send(getJSON());
+	  json_reset();
+	  //printf(getJSON());
+
+	  //HAL_Delay(2000);
+
+
+
+	  /*
 	HAL_GPIO_WritePin(DIR_1_GPIO_Port, DIR_1_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOE, DIR_2_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOE, DIR_3_Pin, GPIO_PIN_RESET);
 	for(int i = 0; i < 999; i++){
-		readIMU();
 		TIM1->CCR1 = i;
 		TIM1->CCR2 = i;
 		TIM1->CCR3 = i;
@@ -190,8 +222,7 @@ int main(void)
 
 	/* INVIO TRAMITE UART4 */
 
-	HAL_UART_Transmit(&huart4, "ciao\r", sizeof("ciao\r"), 0xFFFF);
-	HAL_Delay(500);
+
 
 
     /* USER CODE END WHILE */
@@ -586,7 +617,7 @@ static void MX_UART4_Init(void)
   * @param None
   * @retval None
   */
-void MX_USART3_UART_Init(void)
+static void MX_USART3_UART_Init(void)
 {
 
   /* USER CODE BEGIN USART3_Init 0 */
@@ -630,6 +661,22 @@ void MX_USART3_UART_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -639,64 +686,116 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, DIR_2_Pin|DIR_3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|DIR_1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DIR_1_GPIO_Port, DIR_1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, DIR_2_Pin|DIR_3_Pin|LD2_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : IMU_INTERRUPT_Pin */
-  GPIO_InitStruct.Pin = IMU_INTERRUPT_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(USB_OTG_FS_PWR_EN_GPIO_Port, USB_OTG_FS_PWR_EN_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : B1_Pin */
+  GPIO_InitStruct.Pin = B1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PC0 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(IMU_INTERRUPT_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DIR_2_Pin DIR_3_Pin */
-  GPIO_InitStruct.Pin = DIR_2_Pin|DIR_3_Pin;
+  /*Configure GPIO pins : LD1_Pin LD3_Pin DIR_1_Pin */
+  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|DIR_1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : DIR_2_Pin DIR_3_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = DIR_2_Pin|DIR_3_Pin|LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : DIR_1_Pin */
-  GPIO_InitStruct.Pin = DIR_1_Pin;
+  /*Configure GPIO pin : USB_OTG_FS_PWR_EN_Pin */
+  GPIO_InitStruct.Pin = USB_OTG_FS_PWR_EN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(DIR_1_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(USB_OTG_FS_PWR_EN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : USB_OTG_FS_OVCR_Pin */
+  GPIO_InitStruct.Pin = USB_OTG_FS_OVCR_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(USB_OTG_FS_OVCR_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 
 }
 
 /* USER CODE BEGIN 4 */
+
+
+
+int UART_Send(char (*output)[]) {
+	printf("passa...\r\n");
+	HAL_UART_Transmit(&huart4, output , strlen(output), 0xFFFF);
+	return output;
+}
+
 
 int __io_putchar(int ch) {
 	HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFFF);
 	return ch;
 }
 
-void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin) {
-	if (GPIO_Pin == GPIO_PIN_3) {
+/*
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	if(GPIO_Pin == GPIO_PIN_0){
 		flag_MPU6050_Data_Ready = 1;
 	}
 }
-
+*/
 void readIMU(){
 	if(flag_MPU6050_Data_Ready==1){
 		flag_MPU6050_Data_Ready = 0;
 		IMU_MPU6050_Read_Acc_Gyro(&y);
-		printf("Ax:%f, Ay:%f, Az: %f [m/s^2]\r\n",y.Ax_raw,y.Ay_raw,y.Az_raw);
-		printf("Gx:%f, Gy:%f, Gz: %f [degree/s]\r\n",y.Wx_raw,y.Wy_raw,y.Wz_raw);
-		printf("\r\n");
+		printf("{\"Ax\":%f, \"Ay\":%f, \"Az\": %f,",y.Ax_raw,y.Ay_raw,y.Az_raw);
+		printf("\"Gx\":%f, \"Gy\":%f,\"Gz\": %f}",y.Wx_raw,y.Wy_raw,y.Wz_raw);
+		//printf("Ax:%f, Ay:%f, Az: %f [m/s^2]\r\n",y.Ax_raw,y.Ay_raw,y.Az_raw);
+		//printf("Gx:%f, Gy:%f, Gz: %f [degree/s]\r\n",y.Wx_raw,y.Wy_raw,y.Wz_raw);
+		printf("\n");
 	}
 }
 
+//function to convert string to byte array
+void string2ByteArray(char* input, BYTE* output)
+{
+    int loop;
+    int i;
 
+    loop = 0;
+    i = 0;
+
+    while(input[loop] != '\0')
+    {
+        output[i++] = input[loop++];
+    }
+}
 
 /* USER CODE END 4 */
 

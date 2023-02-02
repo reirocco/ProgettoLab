@@ -1,4 +1,4 @@
 ../Core/Src/IMU_MPU6050.c:22:8:IMU_MPU6050_Init	32	static
 ../Core/Src/IMU_MPU6050.c:95:6:IMU_MPU6050_Read_Acc_Gyro	56	static
-../Core/Src/IMU_MPU6050.c:142:10:Read_FIFO_Count	32	static
-../Core/Src/IMU_MPU6050.c:161:6:Reset_Reable_FIFO	32	static
+../Core/Src/IMU_MPU6050.c:140:10:Read_FIFO_Count	32	static
+../Core/Src/IMU_MPU6050.c:159:6:Reset_Reable_FIFO	32	static
