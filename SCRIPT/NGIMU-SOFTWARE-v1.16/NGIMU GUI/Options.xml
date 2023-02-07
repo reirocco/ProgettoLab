@@ -1,0 +1,28 @@
+<Options ConnectionSearchType="All" SearchForConnectionsAtStartup="True" OpenConnectionToFirstDeviceFound="False" ConfigureUniqueUdpConnection="True" ReadDeviceSettingsAfterOpeningConnection="True" RememberWindowLayout="True" DisconnectFromSerialAfterSleepAndResetCommands="True" DisplayReceivedErrorMessagesInMessageBox="False" MaximumNumberOfRetries="3" Timeout="100" GraphSampleBufferSize="24" AllowUploadWithoutSerialConnection="True" SearchForConnectionsAfterSuccessfulUpload="True">
+  <Windows>
+    <Window Name="MainForm" IsOpen="False" WindowState="Normal" Bounds="336,144,800,601" />
+    <Window Name="Messages Per Second" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Gyroscope" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Accelerometer" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Magnetometer" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Barometer" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Euler Angles" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Linear Acceleration" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Earth Acceleration" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Altimeter" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Temperature" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Humidity" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Battery Percentage" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Battery Time To Empty" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Battery Voltage" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Battery Current" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Analogue Inputs" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="RSSI Power" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="RSSI Percentage" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Form3DView" IsOpen="True" WindowState="Normal" Bounds="953,0,974,1047" />
+    <Window Name="AuxiliarySerialTerminal" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="UploadFirmware" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="Logger" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+    <Window Name="ConvertSDCardFileDialog" IsOpen="False" WindowState="Normal" Bounds="0,0,0,0" />
+  </Windows>
+</Options>
