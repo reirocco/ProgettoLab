@@ -1,0 +1,19 @@
+%%
+clc,clear
+%% serial port list
+serialportlist("available")
+%% open serial port
+device = serialport("COM3",115200);
+%% start plotting
+i = 1;
+while 1 
+    raw1 = readline(device);
+    raw2 = readline(device);
+    raw3 = readline(device);
+    a = sprintf("%f",raw1);
+    b = sprintf("%f",raw2);
+    c = sprintf("%f",raw3);
+    matrix(i)(a b) = [a b c]
+    i = i+1;
+    
+end

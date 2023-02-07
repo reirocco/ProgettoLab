@@ -186,18 +186,18 @@ int main(void)
 	  */
 
 
-	  addElement("rocco", 5);
-	  addElement("test", 5);
-	  addElement("rocco2", 5);
-	  addElement("rocco3", 5);
+	  //addElement("rocco", 5);
+	  //addElement("test", 5);
+	  //addElement("rocco2", 5);
+	  //addElement("rocco3", 5);
 
-	  UART_Send(getJSON());
-	  json_reset();
+	  //UART_Send(getJSON());
+	  //json_reset();
 	  //printf(getJSON());
 
 	  //HAL_Delay(2000);
 
-
+	  readIMU();
 
 	  /*
 	HAL_GPIO_WritePin(DIR_1_GPIO_Port, DIR_1_Pin, GPIO_PIN_RESET);
