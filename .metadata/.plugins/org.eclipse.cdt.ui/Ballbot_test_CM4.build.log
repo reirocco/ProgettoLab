@@ -1,0 +1,148 @@
+18:20:46 **** Incremental Build of configuration Debug for project Ballbot_test_CM4 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/json.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/json.d" -MT"Core/Src/json.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/json.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/json.c: In function 'json_init':
+../Core/Src/json.c:32:18: warning: implicit declaration of function 'calloc' [-Wimplicit-function-declaration]
+   32 |     ptr = (char*)calloc(initial_number, sizeof(char));
+      |                  ^~~~~~
+../Core/Src/json.c:32:18: warning: incompatible implicit declaration of built-in function 'calloc'
+../Core/Src/json.c:11:1: note: include '<stdlib.h>' or provide a declaration of 'calloc'
+   10 | #include "string.h"
+  +++ |+#include <stdlib.h>
+   11 | 
+../Core/Src/json.c:37:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   37 |     printf("Memory not allocated.\r\n");
+      |     ^~~~~~
+../Core/Src/json.c:37:5: warning: incompatible implicit declaration of built-in function 'printf'
+../Core/Src/json.c:11:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   10 | #include "string.h"
+  +++ |+#include <stdio.h>
+   11 | 
+../Core/Src/json.c:38:5: warning: implicit declaration of function 'exit' [-Wimplicit-function-declaration]
+   38 |     exit(0);
+      |     ^~~~
+../Core/Src/json.c:38:5: warning: incompatible implicit declaration of built-in function 'exit'
+../Core/Src/json.c:38:5: note: include '<stdlib.h>' or provide a declaration of 'exit'
+../Core/Src/json.c:41:14: warning: passing argument 2 of 'strcat' makes pointer from integer without a cast [-Wint-conversion]
+   41 |  strcat(ptr, '{');
+      |              ^~~
+      |              |
+      |              int
+In file included from ../Core/Src/json.c:10:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:34:34: note: expected 'const char * restrict' but argument is of type 'int'
+   34 | char  *strcat (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/json.c: In function 'extend':
+../Core/Src/json.c:46:8: warning: implicit declaration of function 'realloc' [-Wimplicit-function-declaration]
+   46 |  ptr = realloc(ptr, initial_number + SHIFT * sizeof(int));
+      |        ^~~~~~~
+../Core/Src/json.c:46:8: warning: incompatible implicit declaration of built-in function 'realloc'
+../Core/Src/json.c:46:8: note: include '<stdlib.h>' or provide a declaration of 'realloc'
+../Core/Src/json.c: In function 'addElement':
+../Core/Src/json.c:50:14: warning: passing argument 2 of 'strcat' from incompatible pointer type [-Wincompatible-pointer-types]
+   50 |  strcat(ptr, key);
+      |              ^~~
+      |              |
+      |              char (*)[]
+In file included from ../Core/Src/json.c:10:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:34:34: note: expected 'const char * restrict' but argument is of type 'char (*)[]'
+   34 | char  *strcat (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/json.c:52:14: warning: passing argument 2 of 'strcat' makes pointer from integer without a cast [-Wint-conversion]
+   52 |  strcat(ptr, SEPARATOR);
+      |              ^~~~~~~~~
+      |              |
+      |              char
+In file included from ../Core/Src/json.c:10:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:34:34: note: expected 'const char * restrict' but argument is of type 'char'
+   34 | char  *strcat (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/json.c:54:13: warning: implicit declaration of function 'atoi' [-Wimplicit-function-declaration]
+   54 |  strcat(ptr,atoi(value));
+      |             ^~~~
+../Core/Src/json.c:54:13: warning: passing argument 2 of 'strcat' makes pointer from integer without a cast [-Wint-conversion]
+   54 |  strcat(ptr,atoi(value));
+      |             ^~~~~~~~~~~
+      |             |
+      |             int
+In file included from ../Core/Src/json.c:10:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:34:34: note: expected 'const char * restrict' but argument is of type 'int'
+   34 | char  *strcat (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/json.c:56:13: warning: passing argument 2 of 'strcat' makes pointer from integer without a cast [-Wint-conversion]
+   56 |  strcat(ptr,COMMA);
+      |             ^~~~~
+      |             |
+      |             char
+In file included from ../Core/Src/json.c:10:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:34:34: note: expected 'const char * restrict' but argument is of type 'char'
+   34 | char  *strcat (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/json.c: In function 'getJSON':
+../Core/Src/json.c:61:13: warning: passing argument 2 of 'strcat' makes pointer from integer without a cast [-Wint-conversion]
+   61 |  strcat(ptr,'}');
+      |             ^~~
+      |             |
+      |             int
+In file included from ../Core/Src/json.c:10:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:34:34: note: expected 'const char * restrict' but argument is of type 'int'
+   34 | char  *strcat (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/json.c:63:13: warning: multi-character character constant [-Wmultichar]
+   63 |  strcat(ptr,'\r\n');
+      |             ^~~~~~
+../Core/Src/json.c:63:13: warning: passing argument 2 of 'strcat' makes pointer from integer without a cast [-Wint-conversion]
+In file included from ../Core/Src/json.c:10:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:34:34: note: expected 'const char * restrict' but argument is of type 'int'
+   34 | char  *strcat (char *__restrict, const char *__restrict);
+      |                                  ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:163:2: warning: implicit declaration of function 'json_init' [-Wimplicit-function-declaration]
+  163 |  json_init();
+      |  ^~~~~~~~~
+../Core/Src/main.c:172:10: warning: unused variable 'X' [-Wunused-variable]
+  172 |  uint8_t X = 0;
+      |          ^
+../Core/Src/main.c:171:10: warning: unused variable 'MSG' [-Wunused-variable]
+  171 |  uint8_t MSG[35] = {'\0'};
+      |          ^~~
+../Core/Src/main.c: In function 'UART_Send':
+../Core/Src/main.c:756:45: warning: passing argument 1 of 'strlen' from incompatible pointer type [-Wincompatible-pointer-types]
+  756 |  HAL_UART_Transmit(&huart4, output , strlen(output), 0xFFFF);
+      |                                             ^~~~~~
+      |                                             |
+      |                                             char (*)[]
+In file included from ../Core/Src/main.c:25:
+c:\st\stm32cubeide_1.11.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'char (*)[]'
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:756:29: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  756 |  HAL_UART_Transmit(&huart4, output , strlen(output), 0xFFFF);
+      |                             ^~~~~~
+      |                             |
+      |                             char (*)[]
+In file included from ../Core/Inc/stm32h7xx_hal_conf.h:458,
+                 from ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:1614:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char (*)[]'
+ 1614 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:757:9: warning: returning 'char (*)[]' from a function with return type 'int' makes integer from pointer without a cast [-Wint-conversion]
+  757 |  return output;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "Ballbot_test_CM4.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Rei\Documents\GITHUB\ProgettoLab\DYNAMIC_BALLBOT\CM4\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Ballbot_test_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Ballbot_test_CM4.elf
+ 
+arm-none-eabi-size   Ballbot_test_CM4.elf 
+arm-none-eabi-objdump -h -S  Ballbot_test_CM4.elf  > "Ballbot_test_CM4.list"
+   text	   data	    bss	    dec	    hex	filename
+  59224	    508	   2412	  62144	   f2c0	Ballbot_test_CM4.elf
+Finished building: default.size.stdout
+ 
+Finished building: Ballbot_test_CM4.list
+ 
+
+18:20:50 Build Finished. 0 errors, 23 warnings. (took 3s.486ms)
+

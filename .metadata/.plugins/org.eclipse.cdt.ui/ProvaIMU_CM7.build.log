@@ -1,0 +1,10 @@
+18:51:34 **** Incremental Build of configuration Debug for project ProvaIMU_CM7 ****
+make -j8 all 
+arm-none-eabi-size   ProvaIMU_CM7.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17604	    216	   3104	  20924	   51bc	ProvaIMU_CM7.elf
+Finished building: default.size.stdout
+ 
+
+18:51:34 Build Finished. 0 errors, 0 warnings. (took 181ms)
+

@@ -4,14 +4,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<title>
-        Flask Atlantis Dark - {% block title %}{% endblock %} | AppSeed
+        BallBot - {% block title %}{% endblock %}
     </title>
 
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="/static/assets/img/icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="/static/assets/img/logo.png" type="image/x-icon"/>
 	<link rel="canonical" href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark">
+     <!-- inizio importazione socketio-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+     <!-- fine importazione socketio-->
+    <script type="text/javascript" charset="utf-8"> var socket = io();</script>
 
-	<!-- Fonts and icons -->
 	<script src="/static/assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
@@ -36,7 +39,7 @@
 
 </head>
 <body data-background-color="dark">
-	<div class="wrapper">
+	<div class="wrapper sidebar_minimize">
 
         {% include 'includes/navigation.html' %}
 

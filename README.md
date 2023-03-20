@@ -33,6 +33,7 @@ La repository include tutto il materiale utilizzato per lo svolgimento del labor
 * STL --> file stampati in 3d
 * STM_CUBE_MX --> WorkSpace di tutti i progetti dell'IDE
 * DYNAMIC_BALLBOT --> Progetto finale con l'implementazione del sistema di controllo
+* DASHBOARD --> Applicazione flask per la visualizzazione delle statistiche e dati in real-time
 
 ```bash
 # Clone this repository
@@ -54,3 +55,5 @@ Software utilizzati:
 * [MarkDown Monster](https://markdownmonster.west-wind.com/download)
 * [MATLAB](https://it.mathworks.com/products/matlab.html)
 * [Tauno Serial Plotter](https://github.com/taunoe/tauno-serial-plotter)
+* [atlantis-dark (MIT Licence)](https://appseed.us/product/atlantis-dark/flask/)
+

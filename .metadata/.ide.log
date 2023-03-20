@@ -2333,3 +2333,47 @@
 2023-02-06 19:47:11,575 [INFO] WebAppUi:459 - Close the Jxbrowser engine manually
 2023-02-06 19:47:11,593 [INFO] WebAppUi:462 - Profiles folder deleted
 2023-02-06 19:47:12,269 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:10:55,934 [INFO] Activator:179 - 
+
+
+2023-02-14 12:10:55,934 [INFO] Activator:180 - !SESSION log4j initialized
+2023-02-14 12:11:34,923 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-02-14 12:11:34,923 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-02-14 12:11:34,923 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-02-14 12:30:26,985 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:26,985 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:27,934 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:27,934 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:28,934 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:28,934 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:29,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:29,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:30,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:30,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:31,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:31,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:32,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:32,935 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:33,936 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:33,936 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:34,936 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:34,936 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:35,936 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:35,936 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:36,937 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:36,937 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:37,937 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:37,937 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:38,938 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:38,938 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:39,939 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:39,939 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 12:30:40,939 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:1: Fine del file anticipata.
+2023-02-14 12:30:40,939 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2023-02-14 15:06:07,662 [INFO] Activator:179 - 
+
+
+2023-02-14 15:06:07,665 [INFO] Activator:180 - !SESSION log4j initialized
+2023-02-14 15:06:40,679 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-02-14 15:06:40,680 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-02-14 15:06:40,681 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.

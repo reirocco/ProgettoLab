@@ -1,9 +1,9 @@
 		<!-- Sidebar -->
-		<div class="sidebar sidebar-style-2" data-background-color="dark2">			
+		<div class="sidebar sidebar-style-2" data-background-color="dark2">
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
 
-				{% if current_user.is_authenticated %}	
+				{% if current_user.is_authenticated %}
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
 							<img src="/static/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
@@ -38,20 +38,11 @@
 					</div>
 					<ul class="nav nav-primary">
 						<li class="nav-item {% if 'index' in segment %} active {% endif %}">
-							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
-								<i class="fas fa-home"></i>
-								<p>Dashboard</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse {% if 'index' in segment %} show {% endif %}" id="dashboard">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="/index.html">
-											<span class="sub-item">Dashboard</span>
-										</a>
-									</li>
-								</ul>
-							</div>
+								<a href="/index.html">
+                                    <i class="fas fa-home"></i>
+                                    <p>Dashboard</p>
+
+                                </a>
 						</li>
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
@@ -115,42 +106,6 @@
 									<li class="{% if 'ui-typography' in segment %} active {% endif %}">
 										<a href="/ui-typography.html">
 											<span class="sub-item">Typography</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li class="nav-item {% if 'layout' in segment %} active {% endif %}">
-							<a data-toggle="collapse" href="#sidebarLayouts">
-								<i class="fas fa-th-list"></i>
-								<p>Sidebar Layouts</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="sidebarLayouts">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="/layout-sidebar-style-1.html">
-											<span class="sub-item">Sidebar Style 1</span>
-										</a>
-									</li>
-									<li>
-										<a href="/layout-overlay-sidebar.html">
-											<span class="sub-item">Overlay Sidebar</span>
-										</a>
-									</li>
-									<li>
-										<a href="/layout-compact-sidebar.html">
-											<span class="sub-item">Compact Sidebar</span>
-										</a>
-									</li>
-									<li>
-										<a href="/layout-static-sidebar.html">
-											<span class="sub-item">Static Sidebar</span>
-										</a>
-									</li>
-									<li>
-										<a href="/layout-icon-menu.html">
-											<span class="sub-item">Icon Menu</span>
 										</a>
 									</li>
 								</ul>
@@ -288,25 +243,14 @@
 								</ul>
 							</div>
 						</li>
-						<li class="mx-4 mt-2">
-                            <a target="_blank"
-                               href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark-pro" 
-                               class="btn btn-danger btn-block">
-                                <span class="btn-label mr-2"> <i class="fa fa-rocket"></i> </span>PRO Version</a> 
-						</li>
+
 					</ul>
 				{% else %}
 					<ul class="nav nav-primary">
-						<li class="mx-4 mt-2">
-                            <a target="_blank"
-                               href="https://appseed.us/admin-dashboards/flask-dashboard-atlantis-dark-pro" 
-                               class="btn btn-danger btn-block">
-                                <span class="btn-label mr-2"> <i class="fa fa-rocket"></i> </span>PRO Version</a> 
-						</li>
+
 					</ul>
-				{% endif %}	
+				{% endif %}
 				</div>
 			</div>
 		</div>
         <!-- End Sidebar -->
-        

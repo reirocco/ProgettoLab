@@ -4,10 +4,12 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 import os
-from   flask_migrate import Migrate
-from   flask_minify  import Minify
-from   sys import exit
-
+from flask_socketio import SocketIO
+import eventlet
+from flask_migrate import Migrate
+from flask_minify import Minify
+from sys import exit
+from flask import Flask, render_template
 from apps.config import config_dict
 from apps import create_app, db
 
@@ -30,13 +32,15 @@ Migrate(app, db)
 
 if not DEBUG:
     Minify(app=app, html=True, js=False, cssless=False)
-    
-if DEBUG:
-    app.logger.info('DEBUG            = ' + str(DEBUG)             )
-    app.logger.info('FLASK_ENV        = ' + os.getenv('FLASK_ENV') )
-    app.logger.info('Page Compression = ' + 'FALSE' if DEBUG else 'TRUE' )
-    app.logger.info('DBMS             = ' + app_config.SQLALCHEMY_DATABASE_URI)
-    app.logger.info('ASSETS_ROOT      = ' + app_config.ASSETS_ROOT )
 
-if __name__ == "__main__":
-    app.run()
+if DEBUG:
+    app.logger.info('DEBUG            = ' + str(DEBUG))
+    app.logger.info('FLASK_ENV        = ' + os.getenv('FLASK_ENV'))
+    app.logger.info('Page Compression = ' + 'FALSE' if DEBUG else 'TRUE')
+    app.logger.info('DBMS             = ' + app_config.SQLALCHEMY_DATABASE_URI)
+    app.logger.info('ASSETS_ROOT      = ' + app_config.ASSETS_ROOT)
+
+
+if __name__ == '__main__':
+    socketio.run(app)
+

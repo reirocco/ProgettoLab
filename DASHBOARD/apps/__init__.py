@@ -2,12 +2,13 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
+from threading import Lock
 
 from flask import Flask
 from flask_login import LoginManager
+from flask_socketio import SocketIO
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
-
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -25,7 +26,6 @@ def register_blueprints(app):
 
 
 def configure_database(app):
-
     @app.before_first_request
     def initialize_database():
         db.create_all()
@@ -42,3 +42,16 @@ def create_app(config):
     register_blueprints(app)
     configure_database(app)
     return app
+
+
+# Set this variable to "threading", "eventlet" or "gevent" to test the
+# different async modes, or leave it set to None for the application to choose
+# the best option based on installed packages.
+async_mode = None
+app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'secret!'
+
+socketio = SocketIO(app, async_mode=async_mode)
+thread = None
+thread_lock = Lock()
