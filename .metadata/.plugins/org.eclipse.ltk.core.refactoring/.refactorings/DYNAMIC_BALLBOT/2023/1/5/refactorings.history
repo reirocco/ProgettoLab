@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;DYNAMIC_BALLBOT/Ballbot_test.ioc&apos; to &apos;DYNAMIC_BALLBOT.ioc&apos;" description="Rename resource &apos;Ballbot_test.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Ballbot_test.ioc" name="DYNAMIC_BALLBOT.ioc" stamp="1675096897098" updateReferences="true"/>
-</session>
