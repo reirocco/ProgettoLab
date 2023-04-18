@@ -1,0 +1,3 @@
+../Core/Src/PWM-Pitch.c:3:7:VtoD_Pitch	24	static
+../Core/Src/PWM-Pitch.c:17:9:ReftoDir_Pitch	24	static
+../Core/Src/PWM-Pitch.c:28:6:set_PWM_dir_Pitch	16	static

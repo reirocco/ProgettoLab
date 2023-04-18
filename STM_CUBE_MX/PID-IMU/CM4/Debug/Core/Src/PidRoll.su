@@ -1,3 +1,0 @@
-../Core/Src/PidRoll.c:3:7:VtoD_Roll	24	static
-../Core/Src/PidRoll.c:17:9:ReftoDir_Roll	24	static
-../Core/Src/PidRoll.c:28:6:set_PWM_dir_Roll	16	static

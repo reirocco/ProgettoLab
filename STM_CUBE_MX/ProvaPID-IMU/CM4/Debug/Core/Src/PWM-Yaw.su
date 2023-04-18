@@ -1,0 +1,3 @@
+../Core/Src/PWM-Yaw.c:3:7:VtoD_Yaw	24	static
+../Core/Src/PWM-Yaw.c:17:9:ReftoDir_Yaw	24	static
+../Core/Src/PWM-Yaw.c:28:6:set_PWM_dir_Yaw	16	static
