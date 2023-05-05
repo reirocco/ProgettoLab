@@ -24,9 +24,16 @@
 /* USER CODE BEGIN Includes */
 #include "PID.h"
 #include "bno055_stm32.h"
-#include "PWM-Roll.h"
-#include "PWM-Pitch.h"
-#include "PWM-Yaw.h"
+
+#include "PID_Roll.h"
+#include "PID_Pitch.h"
+#include "PID_Yaw.h"
+
+#include "PWM_Motor1.h"
+#include "PWM_Motor2.h"
+#include "PWM_Motor3.h"
+
+#include "matrice.h"
 
 /* USER CODE END Includes */
 
@@ -93,8 +100,10 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-PID pid;
-float dt = 0.05;
+PID_Roll pid_roll;
+PID_Pitch pid_pitch;
+PID_Yaw pid_yaw;
+float dt = 0.01;
 float flag_Tc;
 int n_ref=0;
 
@@ -155,11 +164,17 @@ int main(void)
   bno055_setup();
   bno055_setOperationModeNDOF();
 
-  init_tune_PID(&pid, dt, 0.5, 0, 0);
+  //init_tune_PID(&pid, dt, 0.05, 1, 0);
+
+  init_tune_PID_Pitch(&pid_pitch, dt, -10, -7, -1.9);
+  init_tune_PID_Roll(&pid_roll, dt, -40, -95, -11);
+  init_tune_PID_Yaw(&pid_yaw, dt, -10, -25, -2);
+
   float u_roll,u_pitch,u_yaw;
   float duty_roll,duty_pitch,duty_yaw;
   int dir;
   float roll,pitch,yaw;
+  float *Tout;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -168,26 +183,20 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	  if(flag_Tc==1){
-		  flag_Tc= 0;
-		  bno055_vector_t v = bno055_getVectorEuler();
+	  bno055_vector_t v = bno055_getVectorEuler();
+	  roll = (float)v.y;
 
-		  roll = (float)v.y;
-		  pitch = (float)v.z;
-		  yaw = (float)v.x;
-		  printf("%f %f %f",roll,pitch,yaw);
-		  u_roll = PID_controller(&pid, /*(float)v.y*/5, 0.0);
-		  u_pitch = PID_controller(&pid, /*(float)v.z*/5, 0.0);
-		  u_yaw = PID_controller(&pid, /*(float)v.x*/5, 0.0);
 
-		  duty_roll = VtoD_Roll(u_roll);
-		  duty_pitch = VtoD_Pitch(u_pitch);
-		  duty_yaw = VtoD_Yaw(u_yaw);
+	  pitch = (float)v.z;
+	  yaw = (float)v.x;
+	  //printf("Angoli: %f %f %f\r\n",roll,pitch,yaw);
+	  u_roll = PID_controller_Roll(&pid_roll, roll, 0.0);
+	  u_pitch = PID_controller_Pitch(&pid_pitch, pitch, 0.0);
+	  u_yaw = PID_controller_Yaw(&pid_yaw, yaw, 0.0);
+	  printf("%f %f %f\r\n",u_roll,u_pitch,u_yaw);
 
-		  set_PWM_dir_Roll((uint32_t)duty_roll,dir);
-		  set_PWM_dir_Pitch((uint32_t)duty_pitch,dir);
-		  set_PWM_dir_Yaw((uint32_t)duty_yaw,dir);
-	  }
+	  Tout = matriceT(u_roll, u_pitch, u_yaw);
+	  printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
 
     /* USER CODE BEGIN 3 */
   }
