@@ -1,0 +1,2 @@
+../Core/Src/PID_Pitch.c:3:6:init_tune_PID_Pitch	32	static
+../Core/Src/PID_Pitch.c:13:7:PID_controller_Pitch	48	static

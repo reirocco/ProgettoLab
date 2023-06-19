@@ -24,10 +24,14 @@
 /* USER CODE BEGIN Includes */
 #include "PID.h"
 #include "bno055_stm32.h"
+#include "currentsensorfcn.h"
 
 #include "PID_Roll.h"
 #include "PID_Pitch.h"
 #include "PID_Yaw.h"
+#include "PID-C1.h"
+#include "PID-C2.h"
+#include "PID-C3.h"
 
 #include "PWM_Motor1.h"
 #include "PWM_Motor2.h"
@@ -75,12 +79,15 @@ ETH_DMADescTypeDef DMATxDscrTab[ETH_TX_DESC_CNT] __attribute__((section(".TxDecr
 
 ETH_TxPacketConfig TxConfig;
 
+ADC_HandleTypeDef hadc1;
+
 ETH_HandleTypeDef heth;
 
 I2C_HandleTypeDef hi2c1;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart3;
 
@@ -90,16 +97,21 @@ UART_HandleTypeDef huart3;
 
 /* Private function prototypes -----------------------------------------------*/
 static void MX_GPIO_Init(void);
-static void MX_USART3_UART_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
+void MX_USART3_UART_Init(void);
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+PID_C1 pid_c1;
+PID_C2 pid_c2;
+PID_C3 pid_c3;
 PID_Roll pid_roll;
 PID_Pitch pid_pitch;
 PID_Yaw pid_yaw;
@@ -149,11 +161,15 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_USART3_UART_Init();
   MX_I2C1_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
+  MX_ADC1_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+
+  MX_USART3_UART_Init();
+
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
@@ -166,15 +182,23 @@ int main(void)
 
   //init_tune_PID(&pid, dt, 0.05, 1, 0);
 
-  init_tune_PID_Pitch(&pid_pitch, dt, -10, -7, -1.9);
-  init_tune_PID_Roll(&pid_roll, dt, -40, -95, -11);
-  init_tune_PID_Yaw(&pid_yaw, dt, -10, -25, -2);
+  init_tune_PID_Pitch(&pid_pitch, dt, 1,0.02, 0.0);
+  init_tune_PID_Roll(&pid_roll, dt, 1,0.02 , 0.0);
+  init_tune_PID_Yaw(&pid_yaw, dt, 1, 0.02, 0.0);
+
 
   float u_roll,u_pitch,u_yaw;
   float duty_roll,duty_pitch,duty_yaw;
-  int dir;
+  float u_c1,u_c2,u_c3;
+  double c1,c2,c3;
+  float c1_ref,c2_ref,c3_ref;
+  float k = 0.64;
+  uint8_t dir1,dir2,dir3;
   float roll,pitch,yaw;
   float *Tout;
+  int volt = 12;
+
+  float duty1,duty2,duty3;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -182,25 +206,133 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  if(flag_Tc==1){
+	  		  flag_Tc = 0;
+	  	 	  bno055_vector_t v = bno055_getVectorEuler();
 
-	  bno055_vector_t v = bno055_getVectorEuler();
-	  roll = (float)v.y;
+	  	 	  pitch = (float)v.y; // v.y --> x
+	  	 	  roll = (float)v.z; // v.z --> y
+	  	 	  yaw = (float)v.x; // v.x --> z
+	  	 	  //printf("%f %f %f\r\n",roll,pitch,yaw);
+	  	 		  //printf("Angoli: %f %f %f\r\n",roll,pitch,yaw);
+	  	 	  u_roll = PID_controller_Roll(&pid_roll, roll, 0.0);
+	  	 	  u_pitch = PID_controller_Pitch(&pid_pitch, pitch, 0.0);
+	  	 		  //u_yaw = PID_controller_Yaw(&pid_yaw, yaw, 0.0);
+	  	 	  u_yaw = 0;
+	  	 		  //printf("%f %f %f\r\n",u_roll,u_pitch,u_yaw);
+	  	 		  /*c1 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+	  	 		  c2 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+	  	 		  c3 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+	  	 			*/
 
+	  	 	  Tout = matriceT(u_roll, u_pitch, u_yaw);
+	  	 	  printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
+	  	 	  duty1= CtoD_M1(Tout[0]);
+	  	 	  dir1 = ReftoDir_M1(Tout[0]);
 
-	  pitch = (float)v.z;
-	  yaw = (float)v.x;
-	  //printf("Angoli: %f %f %f\r\n",roll,pitch,yaw);
-	  u_roll = PID_controller_Roll(&pid_roll, roll, 0.0);
-	  u_pitch = PID_controller_Pitch(&pid_pitch, pitch, 0.0);
-	  u_yaw = PID_controller_Yaw(&pid_yaw, yaw, 0.0);
-	  printf("%f %f %f\r\n",u_roll,u_pitch,u_yaw);
+	  	 	  duty2 = CtoD_M2(Tout[1]);
+	  	 	  dir2 = ReftoDir_M2(Tout[1]);
 
-	  Tout = matriceT(u_roll, u_pitch, u_yaw);
-	  printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
+	  	 	  duty3 = CtoD_M3(Tout[2]);
+	  	 	  dir3 = ReftoDir_M3(Tout[2]);
+
+	  	 	  set_PWM_dir_M1(duty1, dir1);
+	  	 	  set_PWM_dir_M2(duty2, dir2);
+	  	 	  set_PWM_dir_M3(duty3, dir3);
+
+	  	 		  //printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
+	  	     	  /*init_tune_PID_C1(&pid_c1, dt, 1, 0.01, 0, volt, -volt);
+	  	 	   	  init_tune_PID_C2(&pid_c2, dt, 1, 0.01, 0, volt, -volt);
+	  	     	  init_tune_PID_C3(&pid_c3, dt, 1, 0.01, 0, volt, -volt);
+	  	     	  c1_ref = Tout[0]/k;
+	  	     	  c2_ref = Tout[1]/k;
+	  	     	  c3_ref = Tout[2]/k;
+	  	     	  u_c1 = PID_controller_C1(&pid_c1, (float)c1,c1_ref);
+	  	     	  u_c2 = PID_controller_C2(&pid_c2, (float)c2, c2_ref);
+	  	 		  u_c3 = PID_controller_C3(&pid_c3, (float)c3, c3_ref);
+	  	     	  //printf("%f %f %f\r\n",u_c1,u_c2,u_c3);
+	  	     	 duty1=VtoD_M1(u_c1);
+	  	     	  duty2 = VtoD_M2(u_c2);
+	  	     	  duty3 = VtoD_M3(u_c3);
+	  	     	  set_PWM_dir_M1(duty1, dir);
+	  	 		  set_PWM_dir_M2(duty2, dir);
+	  	 		  set_PWM_dir_M3(duty3, dir);
+	  	 			*/
+
+	  	 	}
 
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_MultiModeTypeDef multimode = {0};
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Common config
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_16B;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.DiscontinuousConvMode = ENABLE;
+  hadc1.Init.NbrOfDiscConversion = 1;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DR;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
+  hadc1.Init.OversamplingMode = DISABLE;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure the ADC multi-mode
+  */
+  multimode.Mode = ADC_MODE_INDEPENDENT;
+  if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_15;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  sConfig.OffsetSignedSaturation = DISABLE;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -434,11 +566,60 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_Encoder_InitTypeDef sConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 0;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 65535;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 0;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init(&htim4, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
   * @brief USART3 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_USART3_UART_Init(void)
+void MX_USART3_UART_Init(void)
 {
 
   /* USER CODE BEGIN USART3_Init 0 */
@@ -490,6 +671,7 @@ static void MX_GPIO_Init(void)
 {
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();

@@ -1,16 +1,16 @@
 #include "PID_Roll.h"
 void init_tune_PID_Roll(PID_Roll* p,float Tc,float Kp,float Ki,float Kd){
 	p->Tc=Tc;
-	p->u_max= 7.68; // coppia massima
-	p->u_min= -7.68;  // coppia minima
+	p->u_max= 32.6800; // coppia massima
+	p->u_min= -32.6800;  // coppia minima
 
 	p->Kp=Kp;
 	p->Ki=Ki;
 	p->Kd=Kd;
 }
-
+// metodo per il calcolo del PID
 float PID_controller_Roll(PID_Roll* p,float y,float r){
-	//printf("Ingresso: %f\r\n",y);
+
 	static float e_old=0,Iterm=0;
 	float u;
 	float newIterm;
@@ -20,13 +20,10 @@ float PID_controller_Roll(PID_Roll* p,float y,float r){
 	float Dterm=(p->Kd/p->Tc)*(e-e_old);
 	e_old=e;
 	u=Pterm+newIterm+Dterm;
-	//printf("Uscita reale: %f\r\n",u);
+
 	if(u>p->u_max){
 		u=p->u_max;
-		//printf("Uscita approssimata: %f\r\n",u);
-	}else if(u<0.0){
-		u= -1*u;/*p->u_min;*/
-		//printf("Uscita approssimata: %f\r\n",u);
+
 	}else if(u<p->u_min){
 		u=p->u_min;
 	}else{

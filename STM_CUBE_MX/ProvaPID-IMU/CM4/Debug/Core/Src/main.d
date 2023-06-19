@@ -22,6 +22,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_eth_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h \
@@ -34,8 +37,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../Core/Inc/PID.h ../Core/Inc/bno055_stm32.h ../Core/Inc/bno055.h \
- ../Core/Inc/PWM-Roll.h ../Core/Inc/main.h ../Core/Inc/PID.h \
- ../Core/Inc/PWM-Pitch.h ../Core/Inc/PWM-Yaw.h
+ ../Core/Inc/currentsensorfcn.h ../Core/Inc/PID_Roll.h ../Core/Inc/main.h \
+ ../Core/Inc/PID_Pitch.h ../Core/Inc/PID_Yaw.h ../Core/Inc/PID-C1.h \
+ ../Core/Inc/PID-C2.h ../Core/Inc/PID-C3.h ../Core/Inc/PWM_Motor1.h \
+ ../Core/Inc/PWM_Motor2.h ../Core/Inc/PWM_Motor3.h ../Core/Inc/matrice.h
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -60,6 +65,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_eth_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h:
@@ -74,8 +82,15 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/PID.h:
 ../Core/Inc/bno055_stm32.h:
 ../Core/Inc/bno055.h:
-../Core/Inc/PWM-Roll.h:
+../Core/Inc/currentsensorfcn.h:
+../Core/Inc/PID_Roll.h:
 ../Core/Inc/main.h:
-../Core/Inc/PID.h:
-../Core/Inc/PWM-Pitch.h:
-../Core/Inc/PWM-Yaw.h:
+../Core/Inc/PID_Pitch.h:
+../Core/Inc/PID_Yaw.h:
+../Core/Inc/PID-C1.h:
+../Core/Inc/PID-C2.h:
+../Core/Inc/PID-C3.h:
+../Core/Inc/PWM_Motor1.h:
+../Core/Inc/PWM_Motor2.h:
+../Core/Inc/PWM_Motor3.h:
+../Core/Inc/matrice.h:

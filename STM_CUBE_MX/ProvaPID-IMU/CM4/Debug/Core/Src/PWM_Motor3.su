@@ -1,0 +1,4 @@
+../Core/Src/PWM_Motor3.c:2:7:CtoD_M3	24	static
+../Core/Src/PWM_Motor3.c:14:7:VtoD_M3	24	static
+../Core/Src/PWM_Motor3.c:28:9:ReftoDir_M3	24	static
+../Core/Src/PWM_Motor3.c:39:6:set_PWM_dir_M3	24	static

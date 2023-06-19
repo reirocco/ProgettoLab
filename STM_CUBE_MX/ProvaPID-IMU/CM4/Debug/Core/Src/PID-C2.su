@@ -1,0 +1,2 @@
+../Core/Src/PID-C2.c:3:6:init_tune_PID_C2	40	static
+../Core/Src/PID-C2.c:13:7:PID_controller_C2	48	static

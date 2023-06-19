@@ -16,6 +16,8 @@ typedef struct PID_Yaw{
 }PID_Yaw;
 void init_tune_PID_Yaw(PID_Yaw*,float,float,float,float);
 
-float PID_controller_Pitch(PID_Yaw*,float,float);
+float PID_controller_Yaw(PID_Yaw*,float,float);
 
 #endif
+
+
