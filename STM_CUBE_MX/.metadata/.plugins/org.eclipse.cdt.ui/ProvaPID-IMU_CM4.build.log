@@ -1,0 +1,138 @@
+02:09:34 **** Incremental Build of configuration Debug for project ProvaPID-IMU_CM4 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/PWM_Motor1.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/PWM_Motor1.d" -MT"Core/Src/PWM_Motor1.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/PWM_Motor1.o"
+arm-none-eabi-gcc "../Core/Src/PWM_Motor2.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/PWM_Motor2.d" -MT"Core/Src/PWM_Motor2.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/PWM_Motor2.o"
+arm-none-eabi-gcc "../Core/Src/PWM_Motor3.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/PWM_Motor3.d" -MT"Core/Src/PWM_Motor3.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/PWM_Motor3.o"
+arm-none-eabi-gcc "../Core/Src/bno055.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/bno055.d" -MT"Core/Src/bno055.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bno055.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/matrice.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/matrice.d" -MT"Core/Src/matrice.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/matrice.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32h7xx_hal_msp.d" -MT"Core/Src/stm32h7xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32h7xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32h7xx_it.d" -MT"Core/Src/stm32h7xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32h7xx_it.o"
+In file included from ../Core/Src/main.c:26:
+../Core/Inc/bno055_stm32.h: In function 'bno055_readData':
+../Core/Inc/bno055_stm32.h:104:20: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+  104 |  HAL_StatusTypeDef ret;
+      |                    ^~~
+In file included from ../Core/Src/main.c:27:
+../Core/Inc/currentsensorfcn.h: In function 'calibration':
+../Core/Inc/currentsensorfcn.h:39:29: warning: initialization of 'void (*)(int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   39 |  void (*adcStartFcn)(int) = adcStartAddr;
+      |                             ^~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:41:59: warning: initialization of 'HAL_StatusTypeDef (*)(int,  int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   41 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
+      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:43:36: warning: initialization of 'uint32_t (*)(int)' {aka 'long unsigned int (*)(int)'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   43 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
+      |                                    ^~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:53:9: warning: unused variable 'rilevazione' [-Wunused-variable]
+   53 |  double rilevazione;
+      |         ^~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:43:13: warning: unused variable 'adcGetValueFcn' [-Wunused-variable]
+   43 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:41:22: warning: unused variable 'adcPollForConversionFcn' [-Wunused-variable]
+   41 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:39:9: warning: unused variable 'adcStartFcn' [-Wunused-variable]
+   39 |  void (*adcStartFcn)(int) = adcStartAddr;
+      |         ^~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h: In function 'getFilteredValue':
+../Core/Inc/currentsensorfcn.h:70:29: warning: initialization of 'void (*)(int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   70 |  void (*adcStartFcn)(int) = adcStartAddr;
+      |                             ^~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:72:59: warning: initialization of 'HAL_StatusTypeDef (*)(int,  int)' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   72 |  HAL_StatusTypeDef (*adcPollForConversionFcn)(int, int) = adcPollForConversionAddr;
+      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:74:36: warning: initialization of 'uint32_t (*)(int)' {aka 'long unsigned int (*)(int)'} from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   74 |  uint32_t (*adcGetValueFcn)(int) = adcGetValue;
+      |                                    ^~~~~~~~~~~
+../Core/Inc/currentsensorfcn.h:79:9: warning: unused variable 'current' [-Wunused-variable]
+   79 |  double current;
+      |         ^~~~~~~
+../Core/Inc/currentsensorfcn.h: In function 'getTorque':
+../Core/Inc/currentsensorfcn.h:24:25: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+   24 | #define TORQUECONSTANT 0,1515573181818224 // N/m torque constant --> see https://www.pololu.com/product/4751/specs#note3
+      |                         ^
+../Core/Inc/currentsensorfcn.h:113:10: note: in expansion of macro 'TORQUECONSTANT'
+  113 |  return (TORQUECONSTANT * current);
+      |          ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:199:7: warning: unused variable 'volt' [-Wunused-variable]
+  199 |   int volt = 12;
+      |       ^~~~
+../Core/Src/main.c:197:20: warning: variable 'yaw' set but not used [-Wunused-but-set-variable]
+  197 |   float roll,pitch,yaw;
+      |                    ^~~
+../Core/Src/main.c:195:9: warning: unused variable 'k' [-Wunused-variable]
+  195 |   float k = 0.64;
+      |         ^
+../Core/Src/main.c:194:23: warning: unused variable 'c3_ref' [-Wunused-variable]
+  194 |   float c1_ref,c2_ref,c3_ref;
+      |                       ^~~~~~
+../Core/Src/main.c:194:16: warning: unused variable 'c2_ref' [-Wunused-variable]
+  194 |   float c1_ref,c2_ref,c3_ref;
+      |                ^~~~~~
+../Core/Src/main.c:194:9: warning: unused variable 'c1_ref' [-Wunused-variable]
+  194 |   float c1_ref,c2_ref,c3_ref;
+      |         ^~~~~~
+../Core/Src/main.c:193:16: warning: unused variable 'c3' [-Wunused-variable]
+  193 |   double c1,c2,c3;
+      |                ^~
+../Core/Src/main.c:193:13: warning: unused variable 'c2' [-Wunused-variable]
+  193 |   double c1,c2,c3;
+      |             ^~
+../Core/Src/main.c:193:10: warning: unused variable 'c1' [-Wunused-variable]
+  193 |   double c1,c2,c3;
+      |          ^~
+../Core/Src/main.c:192:19: warning: unused variable 'u_c3' [-Wunused-variable]
+  192 |   float u_c1,u_c2,u_c3;
+      |                   ^~~~
+../Core/Src/main.c:192:14: warning: unused variable 'u_c2' [-Wunused-variable]
+  192 |   float u_c1,u_c2,u_c3;
+      |              ^~~~
+../Core/Src/main.c:192:9: warning: unused variable 'u_c1' [-Wunused-variable]
+  192 |   float u_c1,u_c2,u_c3;
+      |         ^~~~
+../Core/Src/main.c:191:30: warning: unused variable 'duty_yaw' [-Wunused-variable]
+  191 |   float duty_roll,duty_pitch,duty_yaw;
+      |                              ^~~~~~~~
+../Core/Src/main.c:191:19: warning: unused variable 'duty_pitch' [-Wunused-variable]
+  191 |   float duty_roll,duty_pitch,duty_yaw;
+      |                   ^~~~~~~~~~
+../Core/Src/main.c:191:9: warning: unused variable 'duty_roll' [-Wunused-variable]
+  191 |   float duty_roll,duty_pitch,duty_yaw;
+      |         ^~~~~~~~~
+../Core/Src/main.c:178:21: warning: unused variable 'ret' [-Wunused-variable]
+  178 |   HAL_StatusTypeDef ret = HAL_I2C_IsDeviceReady(&hi2c1, BNO055_I2C_ADDR << 1,5,1000);
+      |                     ^~~
+../Core/Src/matrice.c: In function 'matriceT':
+../Core/Src/matrice.c:4:16: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+    4 |  float *Tout = malloc(sizeof(int)*3);
+      |                ^~~~~~
+../Core/Src/matrice.c:4:16: warning: incompatible implicit declaration of built-in function 'malloc'
+../Core/Src/matrice.c:2:1: note: include '<stdlib.h>' or provide a declaration of 'malloc'
+    1 | #include "matrice.h"
+  +++ |+#include <stdlib.h>
+    2 | #include "math.h"
+In file included from ../Core/Src/main.c:27:
+../Core/Inc/currentsensorfcn.h: In function 'calibration':
+../Core/Inc/currentsensorfcn.h:66:1: warning: control reaches end of non-void function [-Wreturn-type]
+   66 | }
+      | ^
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "C:/Users/Rei/ProgettoLab/STM_CUBE_MX/ProvaPID-IMU/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.d" -MT"Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o"
+arm-none-eabi-gcc -o "ProvaPID-IMU_CM4.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Rei\ProgettoLab\STM_CUBE_MX\ProvaPID-IMU\CM4\STM32H745ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ProvaPID-IMU_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ProvaPID-IMU_CM4.elf
+ 
+arm-none-eabi-size   ProvaPID-IMU_CM4.elf 
+arm-none-eabi-objdump -h -S  ProvaPID-IMU_CM4.elf  > "ProvaPID-IMU_CM4.list"
+   text	   data	    bss	    dec	    hex	filename
+  65560	    508	   2244	  68312	  10ad8	ProvaPID-IMU_CM4.elf
+Finished building: default.size.stdout
+ 
+Finished building: ProvaPID-IMU_CM4.list
+ 
+
+02:09:37 Build Finished. 0 errors, 32 warnings. (took 2s.877ms)
+

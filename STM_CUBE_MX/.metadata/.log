@@ -366,3 +366,18 @@ Project's 'ProvaPID-IMU2' active one is 'ProvaPID-IMU2.ioc' file
 
 !ENTRY org.eclipse.cdt.core 1 0 2023-06-26 01:52:20.777
 !MESSAGE Indexed 'ProvaPID-IMU_CM7' (31 sources, 95 headers) in 2.46 sec: 10,265 declarations; 77,485 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0023%)
+!SESSION 2023-06-26 02:05:51.205 -----------------------------------------------
+eclipse.buildId=Version 1.11.0
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-06-26 02:06:17.520
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-06-26 02:06:17.665
+!MESSAGE Log4j initialized with config file C:\Users\Rei\ProgettoLab\STM_CUBE_MX\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-06-26 02:06:25.511
+!MESSAGE Started RMI Server, listening on port 41337

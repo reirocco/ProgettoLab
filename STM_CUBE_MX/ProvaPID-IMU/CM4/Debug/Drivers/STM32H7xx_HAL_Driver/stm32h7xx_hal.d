@@ -1,5 +1,5 @@
 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o: \
- C:/Users/monte/STM32CubeIDE/workspace_1.11.2/ProvaPID-IMU/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c \
+ C:/Users/Rei/ProgettoLab/STM_CUBE_MX/ProvaPID-IMU/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
