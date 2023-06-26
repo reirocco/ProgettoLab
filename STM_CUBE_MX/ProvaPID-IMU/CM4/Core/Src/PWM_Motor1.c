@@ -41,8 +41,8 @@ void set_PWM_dir_M1(uint32_t duty,uint8_t dir){
 
 
 	if(dir!=0){
-		HAL_GPIO_WritePin(GPIOA, DIR1_Pin1_,GPIO_PIN_SET);//cambia senso di rotazione
+		HAL_GPIO_WritePin(GPIOA, DIR1_Pin1,GPIO_PIN_SET);//cambia senso di rotazione
 	}else{
-		HAL_GPIO_WritePin(GPIOA, DIR1_Pin1_,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, DIR1_Pin1,GPIO_PIN_RESET);
 	}
 }
