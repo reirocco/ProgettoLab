@@ -39,9 +39,12 @@ uint8_t ReftoDir_M2(float u){
 void set_PWM_dir_M2(uint32_t duty,uint8_t dir){
 	TIM1->CCR2 = ((float)duty/100)*TIM1->ARR;
 
-	uint8_t current_dir = (TIM1->CR2 & 0x0010);
 
-	if(dir != current_dir)
-		HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_4);//cambia senso di rotazione
+	if(dir!=0){
+		HAL_GPIO_WritePin(GPIOE, DIR2_Pin,GPIO_PIN_SET);//cambia senso di rotazione
+	}else{
+		HAL_GPIO_WritePin(GPIOE, DIR2_Pin,GPIO_PIN_RESET);
+	}
+
 
 }

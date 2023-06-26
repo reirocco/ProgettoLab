@@ -205,61 +205,41 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
 	  if(flag_Tc==1){
-	  		  flag_Tc = 0;
-	  	 	  bno055_vector_t v = bno055_getVectorEuler();
+		flag_Tc = 0;
+		bno055_vector_t v = bno055_getVectorEuler();
 
-	  	 	  pitch = (float)v.y; // v.y --> x
-	  	 	  roll = (float)v.z; // v.z --> y
-	  	 	  yaw = (float)v.x; // v.x --> z
-	  	 	  //printf("%f %f %f\r\n",roll,pitch,yaw);
-	  	 		  //printf("Angoli: %f %f %f\r\n",roll,pitch,yaw);
-	  	 	  u_roll = PID_controller_Roll(&pid_roll, roll, 0.0);
-	  	 	  u_pitch = PID_controller_Pitch(&pid_pitch, pitch, 0.0);
-	  	 		  //u_yaw = PID_controller_Yaw(&pid_yaw, yaw, 0.0);
-	  	 	  u_yaw = 0;
-	  	 		  //printf("%f %f %f\r\n",u_roll,u_pitch,u_yaw);
-	  	 		  /*c1 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-	  	 		  c2 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-	  	 		  c3 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
-	  	 			*/
+		pitch = (float)v.y; // v.y --> x
+		roll = (float)v.z; // v.z --> y
+		yaw = (float)v.x; // v.x --> z
+		//printf("%f %f %f\r\n",roll,pitch,yaw);
+		  //printf("Angoli: %f %f %f\r\n",roll,pitch,yaw);
+		u_roll = PID_controller_Roll(&pid_roll, roll, 0.0);
+		u_pitch = PID_controller_Pitch(&pid_pitch, pitch, 0.0);
+		  //u_yaw = PID_controller_Yaw(&pid_yaw, yaw, 0.0);
+		u_yaw = 0;
+		  //printf("%f %f %f\r\n",u_roll,u_pitch,u_yaw);
+		  /*c1 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+		  c2 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+		  c3 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
+			*/
 
-	  	 	  Tout = matriceT(u_roll, u_pitch, u_yaw);
-	  	 	  printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
-	  	 	  duty1= CtoD_M1(Tout[0]);
-	  	 	  dir1 = ReftoDir_M1(Tout[0]);
+		Tout = matriceT(u_roll, u_pitch, u_yaw);
+		printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
+		duty1= CtoD_M1(Tout[0]);
+		dir1 = ReftoDir_M1(Tout[0]);
 
-	  	 	  duty2 = CtoD_M2(Tout[1]);
-	  	 	  dir2 = ReftoDir_M2(Tout[1]);
+		duty2 = CtoD_M2(Tout[1]);
+		dir2 = ReftoDir_M2(Tout[1]);
 
-	  	 	  duty3 = CtoD_M3(Tout[2]);
-	  	 	  dir3 = ReftoDir_M3(Tout[2]);
+		duty3 = CtoD_M3(Tout[2]);
+		dir3 = ReftoDir_M3(Tout[2]);
 
-	  	 	  set_PWM_dir_M1(duty1, dir1);
-	  	 	  set_PWM_dir_M2(duty2, dir2);
-	  	 	  set_PWM_dir_M3(duty3, dir3);
-
-	  	 		  //printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
-	  	     	  /*init_tune_PID_C1(&pid_c1, dt, 1, 0.01, 0, volt, -volt);
-	  	 	   	  init_tune_PID_C2(&pid_c2, dt, 1, 0.01, 0, volt, -volt);
-	  	     	  init_tune_PID_C3(&pid_c3, dt, 1, 0.01, 0, volt, -volt);
-	  	     	  c1_ref = Tout[0]/k;
-	  	     	  c2_ref = Tout[1]/k;
-	  	     	  c3_ref = Tout[2]/k;
-	  	     	  u_c1 = PID_controller_C1(&pid_c1, (float)c1,c1_ref);
-	  	     	  u_c2 = PID_controller_C2(&pid_c2, (float)c2, c2_ref);
-	  	 		  u_c3 = PID_controller_C3(&pid_c3, (float)c3, c3_ref);
-	  	     	  //printf("%f %f %f\r\n",u_c1,u_c2,u_c3);
-	  	     	 duty1=VtoD_M1(u_c1);
-	  	     	  duty2 = VtoD_M2(u_c2);
-	  	     	  duty3 = VtoD_M3(u_c3);
-	  	     	  set_PWM_dir_M1(duty1, dir);
-	  	 		  set_PWM_dir_M2(duty2, dir);
-	  	 		  set_PWM_dir_M3(duty3, dir);
-	  	 			*/
-
-	  	 	}
+		set_PWM_dir_M1(duty1, dir1);
+		set_PWM_dir_M2(duty2, dir2);
+		set_PWM_dir_M3(duty3, dir3);
+	  }
+    /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
   }
@@ -669,12 +649,33 @@ void MX_USART3_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(DIR1_GPIO_Port, DIR1_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOE, DIR3_Pin|DIR2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : DIR1_Pin */
+  GPIO_InitStruct.Pin = DIR1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(DIR1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : DIR3_Pin DIR2_Pin */
+  GPIO_InitStruct.Pin = DIR3_Pin|DIR2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
 }
 

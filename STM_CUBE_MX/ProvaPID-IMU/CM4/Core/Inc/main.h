@@ -61,6 +61,12 @@ void   MX_USART3_UART_Init(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DIR1_Pin GPIO_PIN_4
+#define DIR1_GPIO_Port GPIOA
+#define DIR3_Pin GPIO_PIN_10
+#define DIR3_GPIO_Port GPIOE
+#define DIR2_Pin GPIO_PIN_12
+#define DIR2_GPIO_Port GPIOE
 #define STLINK_RX_Pin GPIO_PIN_8
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9

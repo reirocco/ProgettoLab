@@ -40,9 +40,9 @@ void set_PWM_dir_M1(uint32_t duty,uint8_t dir){
 	TIM1->CCR1 = ((float)duty/100)*TIM1->ARR;
 
 
-	if(dir==0){
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4,GPIO_PIN_SET);//cambia senso di rotazione
+	if(dir!=0){
+		HAL_GPIO_WritePin(GPIOA, DIR1_Pin1_,GPIO_PIN_SET);//cambia senso di rotazione
 	}else{
-		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA, DIR1_Pin1_,GPIO_PIN_RESET);
 	}
 }
