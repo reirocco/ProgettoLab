@@ -1,8 +1,8 @@
 #include "PID_Roll.h"
 void init_tune_PID_Roll(PID_Roll* p,float Tc,float Kp,float Ki,float Kd){
 	p->Tc=Tc;
-	p->u_max= 32.6800; // coppia massima
-	p->u_min= -32.6800;  // coppia minima
+	p->u_max= 28.3017; // coppia massima
+	p->u_min= -28.3017;  // coppia minima
 
 	p->Kp=Kp;
 	p->Ki=Ki;

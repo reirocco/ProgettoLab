@@ -182,8 +182,9 @@ int main(void)
 
   //init_tune_PID(&pid, dt, 0.05, 1, 0);
 
-  init_tune_PID_Pitch(&pid_pitch, dt, 1,0.02, 0.0);
-  init_tune_PID_Roll(&pid_roll, dt, 1,0.02 , 0.0);
+  init_tune_PID_Pitch(&pid_pitch, dt, 2,0.08, 0.0);
+  init_tune_PID_Roll(&pid_roll, dt, 2,0.08 , 0.0);
+
   init_tune_PID_Yaw(&pid_yaw, dt, 1, 0.02, 0.0);
 
 
@@ -209,10 +210,10 @@ int main(void)
 		flag_Tc = 0;
 		bno055_vector_t v = bno055_getVectorEuler();
 
-		pitch = (float)v.y; // v.y --> x
+		pitch = (float)v.y; // v.y --> x opposto al motore
 		roll = (float)v.z; // v.z --> y
 		yaw = (float)v.x; // v.x --> z
-		//printf("%f %f %f\r\n",roll,pitch,yaw);
+		//printf("Angoli: %f %f %f\r\n",roll,pitch,yaw);
 		  //printf("Angoli: %f %f %f\r\n",roll,pitch,yaw);
 		u_roll = PID_controller_Roll(&pid_roll, roll, 0.0);
 		u_pitch = PID_controller_Pitch(&pid_pitch, pitch, 0.0);
@@ -223,9 +224,11 @@ int main(void)
 		  c2 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
 		  c3 = getCurrentValue(HAL_ADC_Start, HAL_ADC_PollForConversion, HAL_ADC_GetValue, &hadc1);
 			*/
+		printf("Uscite pid: %f %f\r\n ",u_roll,u_pitch);
 
 		Tout = matriceT(u_roll, u_pitch, u_yaw);
-		printf("%f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
+		//printf("Coppie: %f %f %f\r\n",Tout[0],Tout[1],Tout[2]);
+
 		duty1= CtoD_M1(Tout[0]);
 		dir1 = ReftoDir_M1(Tout[0]);
 

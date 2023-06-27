@@ -27,7 +27,7 @@ float VtoD_M3(float u){
 
 uint8_t ReftoDir_M3(float u){
 	uint8_t dir;
-	if(u<0){
+	if(u>=0){
 		dir=0;//senso orario
 	}else{
 		dir=1;//senso antiorario
@@ -40,7 +40,7 @@ void set_PWM_dir_M3(uint32_t duty,uint8_t dir){
 	TIM1->CCR3 = ((float)duty/100)*TIM1->ARR;
 	//printf("%d \r\n", dir);
 
-	if(dir!=0){
+	if(dir==1){
 		HAL_GPIO_WritePin(GPIOE, DIR3_Pin,GPIO_PIN_SET);//cambia senso di rotazione
 	}else{
 		HAL_GPIO_WritePin(GPIOE, DIR3_Pin,GPIO_PIN_RESET);
